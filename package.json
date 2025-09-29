@@ -1,0 +1,25 @@
+{
+  "name": "personalportfolio",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/MatthewMeade/PersonalPortfolio#readme",
+  "bugs": {
+    "url": "https://github.com/MatthewMeade/PersonalPortfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthewMeade/PersonalPortfolio.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./styles.css -o ./dist/output.css --minify",
+    "watch:css": "tailwindcss -i ./styles.css -o ./dist/output.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "tailwindcss": "^4.1.13"
+  }
+}
