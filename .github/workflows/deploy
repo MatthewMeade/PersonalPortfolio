@@ -12,19 +12,44 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: string
+      deploy:
+        description: 'Deploy to production'
+        required: true
+        type: boolean
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # 1. Checks-out your repository
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
+      # 2. Sets up Node.js environment
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x' # Specify the Node.js version you use
+          cache: 'npm'
+
+      # 3. Installs dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Runs the build script
+      - name: Build CSS
         run: npm run build:css
