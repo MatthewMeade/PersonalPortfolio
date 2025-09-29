@@ -72,7 +72,7 @@
         <header class="flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-12">
             <div class="flex-shrink-0">
                 <img class="w-40 h-40 rounded-full object-cover border-4 border-white shadow-lg"
-                    src="./assets/me_mini.webp" alt="Matthew Meade">
+                    src="./assets/images/me_mini.webp" alt="Matthew Meade">
             </div>
 
             <div>
@@ -203,18 +203,70 @@
         <section class="mt-16 md:mt-24 text-center">
             <h2 class="text-3xl font-bold section-title">Certifications</h2>
             <div class="flex justify-center items-center gap-8 md:gap-16">
-                <img class="cert-image"
-                    src="https://id-preview--0b5dd2c0-76f7-4fcf-95a4-29d49ed3d0a4.lovable.app/assets/aws-solutions-architect-DU96ANxh.png"
-                    alt="AWS Certified Solutions Architect – Associate">
-                <img class="cert-image"
-                    src="https://id-preview--0b5dd2c0-76f7-4fcf-95a4-29d49ed3d0a4.lovable.app/assets/aws-developer-xJ3XQxMH.png"
-                    alt="AWS Certified Developer – Associate">
-                <img class="cert-image"
-                    src="https://id-preview--0b5dd2c0-76f7-4fcf-95a4-29d49ed3d0a4.lovable.app/assets/aws-cloud-practitioner-Bf_gp8J8.png"
-                    alt="AWS Certified Cloud Practitioner">
+                <button onclick="openCert('./assets/certs/SAA.pdf')" class="focus:outline-none">
+                    <img class="cert-image cursor-pointer" src="./assets/images/SAA.png"
+                        alt="AWS Certified Solutions Architect – Associate">
+                </button>
+                <button onclick="openCert('./assets/certs/DVA.pdf')" class="focus:outline-none">
+                    <img class="cert-image cursor-pointer" src="./assets/images/DVA.png"
+                        alt="AWS Certified Developer – Associate">
+                </button>
+                <button onclick="openCert('./assets/certs/CCP.pdf')" class="focus:outline-none">
+                    <img class="cert-image cursor-pointer" src="./assets/images/CCP.png"
+                        alt="AWS Certified Cloud Practitioner">
+                </button>
             </div>
+
+            <dialog id="certDialog" class="rounded-lg shadow-lg p-0 w-full max-w-2xl bg-white">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <span class="font-semibold">Certification PDF</span>
+                    <button onclick="closeCert()"
+                        class="text-gray-500 hover:text-gray-700 text-2xl leading-none">&times;</button>
+                </div>
+                <div class="w-full h-[32rem] flex items-center justify-center bg-gray-100">
+                    <canvas id="pdfCanvas" class="w-full h-full"></canvas>
+                </div>
+            </dialog>
+
+            <script>
+                // PDF.js logic only
+                // Optional: close dialog on backdrop click
+                document.getElementById('certDialog').addEventListener('click', function (e) {
+                    if (e.target === this) closeCert();
+                });
+            </script>
         </section>
     </div>
+
+
 </body>
 
-</html>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.149/wasm/openjpeg_nowasm_fallback.min.js"></script>
+<script>
+    async function openCert(pdfPath) {
+        const dialog = document.getElementById('certDialog');
+        const canvas = document.getElementById('pdfCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        dialog.showModal();
+        // Use correct PDF.js global
+        if (!window.pdfjsLib) return;
+        const loadingTask = window.pdfjsLib.getDocument(pdfPath);
+        const pdf = await loadingTask.promise;
+        const page = await pdf.getPage(1);
+        const viewport = page.getViewport({ scale: 1.5 });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+    }
+    function closeCert() {
+        const dialog = document.getElementById('certDialog');
+        const canvas = document.getElementById('pdfCanvas');
+        const ctx = canvas.getContext('2d');
+        dialog.close();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    document.getElementById('certDialog').addEventListener('click', function (e) {
+        if (e.target === this) closeCert();
+    });
+</script>
