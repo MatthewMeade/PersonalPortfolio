@@ -38,6 +38,15 @@ jobs:
         # This command should generate your static files in a directory (e.g., 'dist' or 'build')
         run: npm run build:css
 
+      - name: Build resume PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: resume
+
+      - name: Publish resume PDF
+        run: cp resume/resume.pdf assets/resume.pdf
+
       - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
         with:

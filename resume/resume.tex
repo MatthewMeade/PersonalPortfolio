@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,
+top=0.5in,
+bottom=0.5in,
+left=0.5in,
+right=0.5in]{geometry}
+\usepackage{XCharter}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\raggedright
+\pagestyle{empty}
+
+% ensure PDF output will be all-Unicode and machine-readable
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% format section headings: bolding, size, white space, no rule
+\titleformat{\section}{\bfseries\large}{}{0pt}{}[\vspace{-2pt}]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+% format bullet points: size, white space
+\setlist[itemize]{itemsep=1.5pt, leftmargin=12pt, topsep=4pt, parsep=0pt, partopsep=0pt}
+
+% resume starts here
+\begin{document}
+
+% name
+\centerline{\Huge Matthew Meade}
+
+\vspace{5pt}
+
+% contact information
+\centerline{St. John's, NL, Canada (Remote) | \href{https://matthewmeade.ca}{matthewmeade.ca} | \href{mailto:email@matthewmeade.ca}{email@matthewmeade.ca} | \href{https://linkedin.com/in/matthewmeade}{linkedin.com/in/matthewmeade}}
+
+\vspace{8pt}
+
+% professional summary (no header)
+Staff Software Engineer with 7+ years designing and building SaaS platforms. I set technical direction, lead product initiatives from concept to launch, and build foundations that help teams ship faster and more reliably.
+
+% skills section
+\section*{Skills}
+\begin{itemize}
+    \item \textbf{AI/LLM:} OpenAI, LangGraph, LangChain, LLM-as-a-Judge Evals, A/B Testing, Prompt Injection Defense.
+    \item \textbf{Architecture:} Event-Driven Systems, Multi-Tenant SaaS, Serverless, Zero-Trust Security, Observability/SLOs.
+    \item \textbf{Languages/Frameworks:} TypeScript, Node.js, NestJS, Express, React, PHP, Laravel, Jest.
+    \item \textbf{Data:} PostgreSQL, MySQL, DynamoDB, MongoDB, Schema Design, Query Performance Tuning.
+    \item \textbf{Cloud/DevOps:} AWS (Lambda, ECS, SQS, SNS, EC2, RDS, S3), IaC, CI/CD, Docker, Datadog, CloudWatch.
+\end{itemize}
+
+% experience section
+\section*{Professional Experience}
+\textbf{HeyOrca} \hfill May 2022 -- Present \\
+\textit{Staff Software Engineer} \hfill Jun 2026 -- Present
+\begin{itemize}
+    \item Built an evaluation and monitoring framework that A/B tests AI assistant changes for response quality and flags requests the assistant cannot handle yet. Closing those gaps cut the refusal rate 30\% in one quarter.
+    \item Leading the company-wide Datadog rollout to replace user-reported outages and costly disconnected logs with tracing and SLO alerts. Built tooling and AI coding-agent skills so teams can instrument services easily.
+    \item Designed and built the foundation of a BI platform joining internal databases with HubSpot and ChartMogul, then handed it to the business team, who use it to flag churn risk and report company health at all-hands.
+    \item IC member of engineering leadership, helping set engineering priorities and technical direction. Write and present architecture review proposals and serve on the process review panel.
+\end{itemize}
+
+\vspace{3pt}
+\textit{Software Engineering Lead} \hfill Jan 2025 -- Jun 2026
+\begin{itemize}
+    \item Led the design and build of HeyOrca's LangGraph AI assistant, used by 726 customer organizations. A zero-trust harness runs every action with the user's permissions. Skills load on demand, so new ones ship in days.
+    \item Helped define company-wide OKRs with engineering and product leadership, and wrote project RFCs.
+    \item Mentored junior developers and gave regular Tech Talks on topics like database tuning and observability.
+\end{itemize}
+
+\vspace{3pt}
+\textit{Senior Software Developer} \hfill May 2022 -- Jan 2025
+\begin{itemize}
+    \item Led AWS cost optimization across S3, RDS and EC2, cutting quarterly spend 30\%, double the executive goal.
+    \item Optimized database queries for 10--100x gains, cutting critical endpoint latency from minutes to under 2~seconds and allowing a smaller, cheaper RDS instance.
+    \item Migrated a legacy notification system to a third-party service handling 500k+ daily notifications, replacing hand-built templates, settings and brittle triggers with one reusable framework.
+    \item Grew HeyOrca's social inbox from Facebook comments only to four social platforms on Lambda and SQS, ingesting 10M+ webhook events a week with at-least-once delivery and polling to recover missed events.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{Radient360 Solutions} \\
+\textit{Intermediate Software Developer} \hfill Apr 2019 -- May 2022
+\begin{itemize}
+    \item Led the migration of a legacy ASP.NET application to Node.js/React, unblocking stalled feature work.
+    \item Re-architected the core authentication service on AWS Cognito so the product could move from single-tenant deployments to multi-tenant SaaS.
+\end{itemize}
+
+% education and certifications section
+\section*{Education and Certifications}
+\textbf{Programmer Analyst (Business) Co-operative Diploma}, College of the North Atlantic \hfill 2019 \\
+AWS Certified Solutions Architect – Associate (2024), AWS Certified Developer – Associate (2025)
+
+\end{document}

@@ -1,2 +1,10 @@
 node_modules
 dist
+# LaTeX build output (resume PDF is built in CI)
+resume/*.aux
+resume/*.log
+resume/*.out
+resume/*.fls
+resume/*.fdb_latexmk
+resume/*.pdf
+assets/resume.pdf
