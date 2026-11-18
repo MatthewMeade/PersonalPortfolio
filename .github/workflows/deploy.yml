@@ -45,7 +45,9 @@ jobs:
           working_directory: resume
 
       - name: Publish resume PDF
-        run: cp resume/resume.pdf assets/resume.pdf
+        run: |
+          cp resume/resume.pdf assets/Matthew_Meade_Resume.pdf
+          cp resume/resume.pdf assets/resume.pdf
 
       - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
