@@ -9,6 +9,7 @@ right=0.5in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Matthew Meade Resume}, pdfauthor={Matthew Meade}}
 \usepackage{titlesec}
 \raggedright
 \pagestyle{empty}
@@ -33,7 +34,7 @@ right=0.5in]{geometry}
 \vspace{5pt}
 
 % contact information
-\centerline{St. John's, NL, Canada (Remote) | \href{https://matthewmeade.ca}{matthewmeade.ca} | \href{mailto:email@matthewmeade.ca}{email@matthewmeade.ca} | \href{https://linkedin.com/in/matthewmeade}{linkedin.com/in/matthewmeade}}
+\centerline{St. John's, NL, Canada (Remote) | \href{https://matthewmeade.ca}{matthewmeade.ca} | \href{mailto:matthew@matthewmeade.ca}{matthew@matthewmeade.ca} | \href{https://linkedin.com/in/matthewmeade}{linkedin.com/in/matthewmeade}}
 
 \vspace{8pt}
 
@@ -43,19 +44,19 @@ Staff Software Engineer with 7+ years designing and building SaaS platforms. I s
 % skills section
 \section*{Skills}
 \begin{itemize}
-    \item \textbf{AI/LLM:} OpenAI, LangGraph, LangChain, LLM-as-a-Judge Evals, A/B Testing, Prompt Injection Defense.
     \item \textbf{Architecture:} Event-Driven Systems, Multi-Tenant SaaS, Serverless, Zero-Trust Security, Observability/SLOs.
     \item \textbf{Languages/Frameworks:} TypeScript, Node.js, NestJS, Express, React, PHP, Laravel, Jest.
     \item \textbf{Data:} PostgreSQL, MySQL, DynamoDB, MongoDB, Schema Design, Query Performance Tuning.
     \item \textbf{Cloud/DevOps:} AWS (Lambda, ECS, SQS, SNS, EC2, RDS, S3), IaC, CI/CD, Docker, Datadog, CloudWatch.
+    \item \textbf{AI/LLM:} LangGraph, OpenAI, LLM Evals, Agent Security.
 \end{itemize}
 
 % experience section
 \section*{Professional Experience}
-\textbf{HeyOrca} (social media management SaaS) \hfill May 2022 -- Present \\
+\textbf{HeyOrca} \hfill May 2022 -- Present \\
 \textit{Staff Software Engineer} \hfill Jun 2026 -- Present
 \begin{itemize}
-    \item Built an LLM-as-a-judge evaluation and monitoring framework that A/B tests AI assistant changes for response quality and flags requests the assistant cannot handle yet. Closing those gaps cut refusals 30\% in one quarter.
+    \item Built an LLM-as-a-judge evaluation and monitoring framework that A/B tests AI assistant changes and flags requests the assistant cannot handle yet. Closing those gaps cut unhandled requests 30\% in one quarter.
     \item Leading the company-wide Datadog rollout to replace user outage reports and costly disconnected logs with tracing and SLO alerts. Built tooling and AI coding-agent skills so teams can instrument services easily.
     \item Designed and built the foundation of a BI platform joining internal databases with HubSpot and ChartMogul, then handed it to the business team, who use it to flag churn risk and report company health at all-hands.
     \item IC member of engineering leadership who helps set priorities and technical direction. Write and present architecture review proposals and serve on the process review panel.
@@ -73,7 +74,7 @@ Staff Software Engineer with 7+ years designing and building SaaS platforms. I s
 \textit{Senior Software Developer} \hfill May 2022 -- Jan 2025
 \begin{itemize}
     \item Led AWS cost optimization across S3, RDS, and EC2, cutting quarterly spend 30\%, double the executive goal.
-    \item Optimized database queries for 10--100x gains, cutting critical endpoint latency from minutes to under 2~seconds and allowing a smaller, cheaper RDS instance.
+    \item Optimized slow database queries, cutting critical endpoint latency from minutes to seconds and allowing a smaller, cheaper RDS instance.
     \item Migrated a legacy notification system to a third-party service handling 500k+ daily notifications, replacing hand-built templates, settings, and brittle triggers with one reusable framework.
     \item Grew HeyOrca's social inbox from only Facebook comments to four social platforms on Lambda and SQS, ingesting 10M+ webhook events a week with at-least-once delivery and polling to recover missed events.
 \end{itemize}
