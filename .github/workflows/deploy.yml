@@ -17,6 +17,11 @@ on:
         - warning
         - debug
 
+# Deploy one run at a time, in push order, so an older run can't overwrite a newer one
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   # Build job: Generates the static site files
   build:
